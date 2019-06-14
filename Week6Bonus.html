@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Registration Form</title>
+		<meta charset="utf-8">
+		<link href="css/style.css" rel="stylesheet">
+
+		<script>
+		window.onload = function validateForm() {
+
+				document.theregistrationForm.firstName.onfocus=function() {
+				document.getElementById('alert').innerHTML = "*Enter your first name";
+				}
+				document.theregistrationForm.firstName.onblur=function() {
+				document.getElementById('alert').innerHTML = "";
+				}
+				document.theregistrationForm.lastName.onfocus=function() {
+				document.getElementById('alert').innerHTML = "*Enter your last name";
+				}
+		  	document.theregistrationForm.lastName.onblur=function() {
+		  	document.getElementById('alert').innerHTML = "";
+				}
+				document.theregistrationForm.address.onfocus=function() {
+				document.getElementById('alert').innerHTML = "*Enter your address";
+				}
+				document.theregistrationForm.address.onblur=function() {
+				document.getElementById('alert').innerHTML = "";
+				}
+				document.theregistrationForm.city.onfocus=function() {
+				document.getElementById('alert').innerHTML = "*Enter your City";
+				}
+				document.theregistrationForm.city.onblur=function() {
+				document.getElementById('alert').innerHTML = "";
+				}
+				document.theregistrationForm.postalCode.onfocus=function() {
+				document.getElementById('alert').innerHTML = "*Enter your Postal Code";
+				}
+				document.theregistrationForm.postalCode.onblur=function() {
+				document.getElementById('alert').innerHTML = "";
+				}
+				document.theregistrationForm.emailAddress.onfocus=function() {
+				document.getElementById('alert').innerHTML = "*Enter your Email address";
+				}
+				document.theregistrationForm.emailAddress.onblur=function() {
+				document.getElementById('alert').innerHTML = "";
+				}
+				document.theregistrationForm.homePhone.onfocus=function() {
+				document.getElementById('alert').innerHTML = "*Enter your Home Phone";
+				}
+				document.theregistrationForm.homePhone.onblur=function() {
+				document.getElementById('alert').innerHTML = "";
+		}
+	}
+
+		function validateForm(){
+
+			var credCard = document.getElementById("creditCardNumber").value
+			if (isNaN(credCard)){
+				alert("Invalid input in Credit Card Number Field.");
+				return false;
+			}
+		}
+
+		function submitForm(){
+				alert("Thank You. Your Form Has already submitted.");
+				document.getElementById("registrationForm").reset();
+			}
+
+
+</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<header>
+				<h1 class="center">Registration</h1>
+				<p class="center">Please enter the following information. Fields marked with an asterisk (<span class="required">*</span>) are required.</p>
+			</header>
+			<div id="content">
+			<form name="theregistrationForm" id="registrationForm" method="post" action="javascript:void(0);" onsubmit=" return submitForm()">
+				<fieldset>
+					<legend>Personal Information</legend>
+					<span  class="required"   id= "alert"  ></span>
+					<table>
+						<tr>
+							<td>
+								<span  class="required">*</span>
+								<label for="firstName">First Name:</label>
+							</td>
+							<td>
+								<input type="text" name="firstName" required id="firstName" title="Please enter your First name" autofocus placeholder="First Name" >
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="lastName">Last Name:</label>
+							</td>
+							<td>
+								<input type="text" name="lastName" required title="Please enter your Last name" autofocus placeholder="Last name" id="lastName">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="address">Address:</label>
+							</td>
+							<td>
+								<input type="text" name="address" required id="address" size="40"  title="Please enter your address" autofocus placeholder="Address">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="city">City:</label>
+							</td>
+							<td>
+								<input type="text" name="city" id="city" required title="Please enter your City" autofocus placeholder="City">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="province">Province:</label>
+							</td>
+							<td>
+								<select required name="province" onselect= id="province" size="1">
+									<option value ="">Select a province</option>
+									<option value="BC">British Columbia</option>
+									<option value="AB">Alberta</option>
+									<option value="SK">Saskatchewan</option>
+									<option value="MB">Manitoba</option>
+									<option value="ON">Ontario</option>
+									<option value="QC">Québec</option>
+									<option value="NB">New Brunswick</option>
+									<option value="NS">Nova Scotia</option>
+									<option value="PE">Prince Edward Island</option>
+									<option value="NF">Newfoundland</option>
+									<option value="YK">Yukon</option>
+									<option value="NWT">Northwest Territories</option>
+									<option value="NU">Nunavut</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="postalCode">Postal Code:</label>
+							</td>
+							<td>
+								<input type="text" name="postalCode" required id="postalCode" maxlength="6" title="Please enter your Postal Code" autofocus placeholder="Postal Code">
+							</td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span><label for="emailAddress">Email address:</label></td>
+							<td><input type="text" name="emailAddress" required id="emailAddress" title="Please enter your Email Address" autofocus placeholder="Email Addres"></td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span><label for="homePhone">Home Phone:</label></td>
+							<td><input type="text" name="homePhone"  required id="homePhone" title="Please enter your Home Phone" autofocus placeholder="Home Phone"></td>
+						</tr>
+						<tr>
+							<td><label for="workPhone">Work Phone:</label></td>
+							<td><input type="text" name="workPhone" id="workPhone"></td>
+						</tr>
+					</table>
+				</fieldset>
+				<fieldset>
+					<legend>Payment Information</legend>
+					<table>
+						<tr>
+							<td><span class="required">*</span><label>Credit Card Type:</label></td>
+							<td>
+								<img src="images/visa.png" alt="visa" title="Visa Credit Card"><input type="radio" name="creditCardType" required id="creditCardTypeVisa" value="visa">
+								<img src="images/mastercard.png" alt="MasterCard" title="MasterCard Credit Card"><input type="radio" name="creditCardType" required id="creditCardTypeMasterCard" value="masterCard">
+								<img src="images/amex.png" alt="AMEX" title="American Express Credit Card"><input type="radio" name="creditCardType" required id="creditCardTypeAmex" value="amex">
+							</td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span><label for="creditCardNumber">Credit Card Number</label></td>
+							<td><input type="text" name="creditCardNumber" required id="creditCardNumber" maxlength="16"></td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span><label>Expiry(MM/YY)</label></td>
+							<td><input type="text" name="expiryMonth" required id="expiryMonth" maxlength="5">
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+				<fieldset>
+					<legend>Agree and Submit</legend>
+					<table>
+						<tr>
+							<td>Check if you agree with our Terms and Conditions</td>
+							<td><input type="checkbox"  required name="agreeToTerms" id="agreeToTerms" value="yes"></td>
+						</tr>
+						<tr>
+							<td><input type="submit" name="btnSubmit" id="btnSubmit" onclick="return validateForm()" value="Submit Registration"></td>
+							<td><input type="reset" name="btnReset" id="btnReset" value="Reset Form"></td>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+
+			</div><!-- End Content -->
+			<footer>
+				<p>&copy;2013 CST8285. All rights reserved.</p>
+			</footer>
+		</div><!-- End Wrapper -->
+
+
+
+	</body>
+</html>
